@@ -1,25 +1,29 @@
 import React from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './FrontEnd/scss/App.scss';
+
+import {
+    BrowserRouter as Router,
+    Route,
+    Routes
+} from "react-router-dom";
+
+import NavBar from "./FrontEnd/Pages/00_nav_bar";
+import ResearcherUploadImage from "./FrontEnd/Pages/ResearcherSide/01_upload_image";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+      <React.Fragment>
+          <Router>
+              <NavBar />
+
+              <Routes>
+                  <Route path={"/test"} element={<ResearcherUploadImage></ResearcherUploadImage>}></Route>
+              </Routes>
+          </Router>
+      </React.Fragment>
+
   );
 }
 

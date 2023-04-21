@@ -1,0 +1,22 @@
+@import "~bootstrap/scss/bootstrap";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 130;
+}
+
+body {
+  /* Defining properties that will be common to the all the elements of the body */
+  padding: 0;
+  margin: 0;
+
+  section.section-01-researcher-upload-image{
+    h1 {
+            margin-bottom: 0.5em;
+        }
+  }
+
+}
