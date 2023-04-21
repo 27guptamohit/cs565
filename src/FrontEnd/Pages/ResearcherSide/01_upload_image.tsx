@@ -6,10 +6,10 @@ export default class ResearcherUploadImage extends Component
     {
         return (
             <React.Fragment>
-            <section className="section-01-researcher-upload-image">
-                <h1>Hello</h1>
-            </section>
-        </React.Fragment>
+                <section className="section-01-researcher-upload-image">
+                    <h1>Hello</h1>
+                </section>
+            </React.Fragment>
         );
     }
 }

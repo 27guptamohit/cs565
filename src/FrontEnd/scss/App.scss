@@ -13,6 +13,44 @@ body {
   padding: 0;
   margin: 0;
 
+  Navbar {
+    overflow: hidden;
+  }
+
+  section.section-01-home-screen{
+    display: flex;
+    /* As there will be cards inside */
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    /* Very important for designing the content which doesn't fits */
+
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #FFFFFF;
+    text-align: center;
+    padding-top: 1em;
+
+    div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        button {
+
+            margin: 0 5vw 21vh 5vw; /* Top right bottom left */ /* In terms of view height */
+            height: 10em;
+            padding: 1em 1em;
+            width: 20vw;
+
+            h1 {
+                margin-bottom: 0px;
+            }
+        }
+    }
+  }
+
   section.section-01-researcher-upload-image{
     h1 {
             margin-bottom: 0.5em;
