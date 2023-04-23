@@ -1,4 +1,7 @@
 @import "~bootstrap/scss/bootstrap";
+$dark-green: #006400FF;
+$light-green: #4CAF50;
+$white: #FFFFFF;
 
 * {
     margin: 0;
@@ -12,10 +15,6 @@ body {
   /* Defining properties that will be common to the all the elements of the body */
   padding: 0;
   margin: 0;
-
-  Navbar {
-    overflow: hidden;
-  }
 
   section.section-01-home-screen{
     display: flex;
@@ -51,10 +50,69 @@ body {
     }
   }
 
-  section.section-01-researcher-upload-image{
-    h1 {
-            margin-bottom: 0.5em;
+  section.section-01-researcher-upload-image-options{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: $white;
+    text-align: center;
+
+    div.image-upload {
+      display: flex;
+      flex-wrap: wrap;
+      background-color: $dark-green;
+      margin: 1rem;
+      padding: 0.5rem;
+      height: 80%;
+
+
+      div.image-preview {
+        flex: 1;
+        flex-basis: 65%;
+        background-color: $light-green;
+        margin-right: 0.5rem;
+
+        img {
+          width: 100%;
         }
+      }
+
+      div.image-upload-form {
+        flex: 1;
+        flex-basis: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: $light-green;
+        margin-left: 0.5rem;
+        padding-left: 0.5rem; // Remove unwanted space
+
+
+        label {
+          margin-bottom: 0.5rem;
+        }
+
+        input, button {
+          padding: 0.5rem 1rem;
+          margin-bottom: 0.5rem;
+          border-radius: 0.25rem;
+          border: none;
+        }
+
+        button.done-button {
+          background-color: $light-green;
+          color: $white;
+        }
+
+      }
+
+    }
+
   }
 
 }

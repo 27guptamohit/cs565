@@ -16,7 +16,7 @@ export default class HomeScreen extends Component
 
 
                             <Button>
-                                <h1>Upload Image</h1>
+                                <h1>Create Study</h1>
                             </Button>
                     </div>
                 </section>

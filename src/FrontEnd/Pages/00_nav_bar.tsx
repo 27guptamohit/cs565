@@ -19,17 +19,14 @@ export default class NavBar extends Component
 
                       <Nav className="justify-content-end" style={{ width: "100%" }}>
                           <NavDropdown title="Participant" id="collasible-nav-dropdown">
-                          <NavDropdown.Item href="#action/3.1">Item 1</NavDropdown.Item>
-                          <NavDropdown.Item href="#action/3.2">Item 2</NavDropdown.Item>
-                          <NavDropdown.Divider />
-                          <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+                          <NavDropdown.Item href="#">Play New Game</NavDropdown.Item>
                           </NavDropdown>
 
                           <NavDropdown title="Researcher" id="collasible-nav-dropdown">
-                          <NavDropdown.Item href="#action/3.1">Item 1</NavDropdown.Item>
-                          <NavDropdown.Item href="#action/3.2">Item 2</NavDropdown.Item>
+                          <NavDropdown.Item href="#">Create Study</NavDropdown.Item>
+                          <NavDropdown.Item href="#">Analytics</NavDropdown.Item>
                           <NavDropdown.Divider />
-                          <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+                          <NavDropdown.Item href="#">Generate Results</NavDropdown.Item>
                           </NavDropdown>
                       </Nav>
                     </Navbar.Collapse>
