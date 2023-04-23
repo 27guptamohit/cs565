@@ -1,8 +1,4 @@
 import React, {Component} from 'react';
-import Button from 'react-bootstrap/Button';
-import ButtonGroup from 'react-bootstrap/ButtonGroup';
-
-
 
 export default class ParticipantActivityScreen extends Component
 {
@@ -22,7 +18,9 @@ export default class ParticipantActivityScreen extends Component
                             <div className="question-box">
 
                                 <div className="question">
-
+                                    <h3>
+                                        The shortlisted questions will be shown here after final discussion.
+                                    </h3>
                                 </div>
 
                                 <div className="option">
