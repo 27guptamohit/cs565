@@ -161,6 +161,13 @@ body {
         margin-bottom: 0.5rem;
         overflow: auto;
 
+        div.question-box{
+          width: auto;
+          height: 5rem;
+          background-color: $dark-green;
+          margin: 0.25rem;
+        }
+
 
       }
 

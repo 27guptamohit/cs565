@@ -19,7 +19,113 @@ export default class ParticipantActivityScreen extends Component
                         </div>
 
                         <div className="recognition-questions">
+                            <div className="question-box">
 
+                                <div className="question">
+
+                                </div>
+
+                                <div className="option">
+
+                                </div>
+
+                            </div>
+
+                            <div className="question-box">
+
+                                <div className="question">
+
+                                </div>
+
+                                <div className="option">
+
+                                </div>
+
+                            </div>
+
+                            <div className="question-box">
+
+                                <div className="question">
+
+                                </div>
+
+                                <div className="option">
+
+                                </div>
+
+                            </div>
+
+                            <div className="question-box">
+
+                                <div className="question">
+
+                                </div>
+
+                                <div className="option">
+
+                                </div>
+
+                            </div>
+
+                            <div className="question-box">
+
+                                <div className="question">
+
+                                </div>
+
+                                <div className="option">
+
+                                </div>
+
+                            </div>
+
+                            <div className="question-box">
+
+                                <div className="question">
+
+                                </div>
+
+                                <div className="option">
+
+                                </div>
+
+                            </div>
+
+                            <div className="question-box">
+
+                                <div className="question">
+
+                                </div>
+
+                                <div className="option">
+
+                                </div>
+
+                            </div>
+
+                            <div className="question-box">
+
+                                <div className="question">
+
+                                </div>
+
+                                <div className="option">
+
+                                </div>
+
+                            </div>
+
+                            <div className="question-box">
+
+                                <div className="question">
+
+                                </div>
+
+                                <div className="option">
+
+                                </div>
+
+                            </div>
                         </div>
 
 
