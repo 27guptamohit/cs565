@@ -14,7 +14,11 @@ import ResearcherUploadImage from "./FrontEnd/Pages/ResearcherSide/01_upload_ima
 import ResearcherAnalytics from "./FrontEnd/Pages/ResearcherSide/02_analytics";
 import ResearcherGenerateResults from "./FrontEnd/Pages/ResearcherSide/03_generate_results";
 
+// import ParticipantActivityScreen from "./FrontEnd/Pages/ParticipantSide/01_activity_screen_bak";
+import ParticipantEntraceScreen from "./FrontEnd/Pages/ParticipantSide/00_entrance_screen";
 import ParticipantActivityScreen from "./FrontEnd/Pages/ParticipantSide/01_activity_screen";
+
+
 
 
 function App() {
@@ -25,13 +29,16 @@ function App() {
               <NavBar />
 
               <Routes>
-                  <Route path={"/"} element={<HomeScreen></HomeScreen>}></Route>
+                  {/* <Route path={"/"} element={<HomeScreen></HomeScreen>}></Route> */}
 
                   <Route path={"/image-upload-options"} element={<ResearcherUploadImage></ResearcherUploadImage>}></Route>
                   <Route path={"/activity"} element={<ParticipantActivityScreen></ParticipantActivityScreen>}></Route>
                   <Route path={"/results"} element={<ResearcherGenerateResults></ResearcherGenerateResults>}></Route>
 
                   <Route path={"/analytics"} element={<ResearcherAnalytics></ResearcherAnalytics>}></Route>
+                  <Route path={"/"} element={<ParticipantEntraceScreen></ParticipantEntraceScreen>}></Route>
+
+
 
               </Routes>
           </Router>

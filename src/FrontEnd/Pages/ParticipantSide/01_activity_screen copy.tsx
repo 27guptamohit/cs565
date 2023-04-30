@@ -81,65 +81,13 @@ function ParticipantActivityScreen() {
   };
 
   return (
-    <div className="music-staff">
-        {/* Render staff lines */}
-        <div className="staff">
-            {[...Array(5)].map((_, idx) => (
-            <div key={idx} className="staff-line" />
-            ))}
-        </div>
-        {/* <div className="note">{getNoteSymbol(6)}</div> */}
-        {/* Render draggable note */}
-        {notes.map(({ x, y, type }, index) => (
-            (type < 3 || type > 5) ? 
-            <Draggable
-            key={index}
-            axis="y"
-            bounds="parent"
-            position={{ x, y }}
-            onDrag={(e, position) => handleNoteDrag(index, position)}
-            >
-            <div className="note">{getNoteSymbol(type)}</div>
 
-            </Draggable> : <Draggable
-            key={index}
-            axis="y"
-            bounds="parent"
-            position={{ x, y }}
-            onDrag={(e, position) => handleNoteDrag(index, position)}
-            disabled={true}
-            >
-            <div className="note">{getNoteSymbol(type)}</div>
-
-            </Draggable>
-        ))}
-
-        {/* Render buttons */}
-        <div className="note-buttons">
-            {types.map((note, index) => (
-            <button key={index} onClick={() => addNote(note)} style={{ marginRight: '10px' }}>
-                {/* <img src={`img${note+1}.png`} alt="Note icon" style={{ width: '50px', height: '50px' }}/> */}
-                <img src={`/notes/img${note+1}.png`} alt="Note icon" style={{ width: '50px', height: '50px' }}/>
-
-                {note+1}
-            </button>
-            ))}
-        </div>
-        <div className="button-container" style={{ marginTop: '20px' }}>
-            <div className="reset-button">
-                <button onClick={() => deleteLastNote()} style={{ fontSize: '20px', padding: '10px 20px' }}>
-                    Delete
-                </button>
-            </div>
-
-            <div className="reset-button">
-                <button onClick={() => resetMeasure()} style={{ fontSize: '20px', padding: '10px 20px' }}>
-                    Reset
-                </button>
-            </div>
-            
-        </div>
+    <div>
+        hi
     </div>
+
+
+
 
   );
 }

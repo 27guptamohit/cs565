@@ -12,7 +12,7 @@ export default class ResearcherGenerateResults extends Component
                     <div className="result-preview">
 
                         <div className="image-preview">
-                            <img src="logo512.png" alt="Preview Image" />
+                            <img src="logo513.png" alt="Preview Image" />
                         </div>
 
                         <div className="download">
