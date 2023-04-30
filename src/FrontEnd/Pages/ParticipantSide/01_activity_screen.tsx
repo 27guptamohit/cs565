@@ -119,7 +119,7 @@ function ParticipantActivityScreen() {
             {types.map((note, index) => (
             <button key={index} onClick={() => addNote(note)} style={{ marginRight: '10px' }}>
                 {/* <img src={`img${note+1}.png`} alt="Note icon" style={{ width: '50px', height: '50px' }}/> */}
-                <img src={`/notes/img${note+1}.png`} alt="Note icon" style={{ width: '50px', height: '50px' }}/>
+                <img src={process.env.PUBLIC_URL + `/notes/img${note+1}.png`} alt="Note icon" style={{ width: '50px', height: '50px' }}/>
 
                 {note+1}
             </button>
@@ -138,6 +138,11 @@ function ParticipantActivityScreen() {
                 </button>
             </div>
             
+        </div>
+        <div className="submit-button">
+                <button onClick={() => resetMeasure()} style={{ fontSize: '20px', padding: '10px 20px' }}>
+                    Submit
+                </button>
         </div>
     </div>
 
