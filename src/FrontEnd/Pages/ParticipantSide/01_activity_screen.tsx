@@ -42,13 +42,10 @@ const typesName = [
 const notePos = [375, 350, 325, 300, 275, 250, 225, 200, 175];
 const pitchIdx = new Map(notePos.map((val, idx) => [val, idx]));
 
-
 const ParticipantActivityScreen = () => {
   const [measure, setMeasure] = useState({ _id: "", image: "" });
   const [num_submission, setNum_submission] = useState(0);
   const navigate = useNavigate();
-
-
 
   useEffect(() => {
     fetchMeasure();
@@ -73,43 +70,34 @@ const ParticipantActivityScreen = () => {
 
   const handleSubmitClick = () => {
     setNum_submission((prevState) => prevState + 1);
-      const symbols: Symbol[] = notes.map((note: Note) => {
-        if (note.type === 0 || note.type === 1 || note.type === 2) {
-          return {
-            name: String(typesName[note.type]),
-            pitch: pitchIdx.get(note.y)
-          };
-        } else {
-          return {
-            name: String(typesName[note.type])
-          };
-        }
+    const symbols: Symbol[] = notes.map((note: Note) => {
+      if (note.type === 0 || note.type === 1 || note.type === 2) {
+        return {
+          name: String(typesName[note.type]),
+          pitch: pitchIdx.get(note.y),
+        };
+      } else {
+        return {
+          name: String(typesName[note.type]),
+        };
+      }
+    });
+    const requestBody: RequestBody = {
+      measureId: measureId,
+      measureResponse: {
+        userId: userId,
+        symbols: symbols,
+      },
+    };
+    console.log(requestBody);
+    API.post("api/measureresponse", requestBody)
+      .then((response) => {
+        // console.log(response.data); // handle the response data as needed
+        resetMeasure();
+      })
+      .catch((error) => {
+        console.error("There was a problem with the fetch operation:", error);
       });
-      const requestBody: RequestBody = {
-        measureId: measureId,
-        measureResponse: {
-          userId: userId,
-          symbols: symbols,
-        },
-      };
-      console.log(requestBody);
-      API.post("api/measureresponse", requestBody)
-        .then((response) => {
-            // console.log(response.data); // handle the response data as needed
-            resetMeasure();
-        })
-        .catch((error) => {
-            console.error("There was a problem with the fetch operation:", error);
-          });
-    //   try {
-    //     const response = await axios.post(
-    //       `${ENDPOINT}/api/measureresponse`,
-    //       requestBody
-    //     );
-    //     console.log(response.data); // handle the response data as needed
-    //   } catch (error) {
-    //     console.error(error);
-    //   }    
   };
 
   const handleFinishClick = () => {
@@ -118,15 +106,13 @@ const ParticipantActivityScreen = () => {
 
   const location = useLocation();
   const userId = location.state?.userId;
-//   console.log("userId: " + userId);
+  //   console.log("userId: " + userId);
 
   const measureId = measure._id;
-//   console.log("measureId: " + measureId);
-
+  //   console.log("measureId: " + measureId);
 
   //   const [notes, setNotes] = useState([]);
   const [notes, setNotes] = useState<Note[]>([]);
-
 
   const handleNoteDrag = (
     index: number,
@@ -192,8 +178,6 @@ const ParticipantActivityScreen = () => {
     setNotes((prevNotes) => prevNotes.slice(0, -1));
   }
 
-
-
   const getNoteSymbol = (type: number) => {
     switch (type) {
       case 0:
@@ -216,108 +200,115 @@ const ParticipantActivityScreen = () => {
   return (
     <React.Fragment>
       {/* <section className="section-02-participant-activity-screen"> */}
-        <div className="act-container">
-          <div className="response-counter">
-            {num_submission < 4 ? (
-              <h3>Please submit at least 4 responses </h3>
-            ) : (
-              <h3>
-                Thank you for your participation, Now you can continue or click
-                the "Finish" button to leave
-              </h3>
-            )}
-          </div>
-
-          {num_submission >= 4 ? (
-                <button onClick={handleFinishClick} style={{ fontSize: "20px", padding: "10px 20px" }}>Finish</button>
-              ) : null}
-
-          <div className="image-preview">
-            {measure.image !== "" ? (
-              <img src={measure.image} alt="Measure Image" />
-            ) : null}
-          </div>
-
-          <div className="music-staff">
-            {/* Render staff lines */}
-            <div className="staff">
-              {[...Array(5)].map((_, idx) => (
-                <div key={idx} className="staff-line" />
-              ))}
-            </div>
-            {/* <div className="note">{getNoteSymbol(6)}</div> */}
-            {/* Render draggable note */}
-            {notes.map(({ x, y, type }, index) =>
-              type < 3 || type > 5 ? (
-                <Draggable
-                  key={index}
-                  axis="y"
-                  bounds="parent"
-                  position={{ x, y }}
-                  onDrag={(e, position) => handleNoteDrag(index, position)}
-                >
-                  <div className="note">{getNoteSymbol(type)}</div>
-                </Draggable>
-              ) : (
-                <Draggable
-                  key={index}
-                  axis="y"
-                  bounds="parent"
-                  position={{ x, y }}
-                  onDrag={(e, position) => handleNoteDrag(index, position)}
-                  disabled={true}
-                >
-                  <div className="note">{getNoteSymbol(type)}</div>
-                </Draggable>
-              )
-            )}
-
-            {/* Render buttons */}
-            <div className="note-buttons">
-              {types.map((note, index) => (
-                <button
-                  key={index}
-                  onClick={() => addNote(note)}
-                  style={{ marginRight: "10px" }}
-                >
-                  {/* <img src={`img${note+1}.png`} alt="Note icon" style={{ width: '50px', height: '50px' }}/> */}
-                  <img
-                    src={process.env.PUBLIC_URL + `/notes/img${note + 1}.png`}
-                    alt="Note icon"
-                    style={{ width: "50px", height: "50px" }}
-                  />
-
-                  {note + 1}
-                </button>
-              ))}
-            </div>
-            <div className="button-container" style={{ marginTop: "20px" }}>
-              <div className="reset-button">
-                <button
-                  onClick={() => deleteLastNote()}
-                  style={{ fontSize: "20px", padding: "10px 20px" }}
-                >
-                  Delete
-                </button>
-              </div>
-
-              <div className="reset-button">
-                <button
-                  onClick={() => resetMeasure()}
-                  style={{ fontSize: "20px", padding: "10px 20px" }}
-                >
-                  Reset
-                </button>
-              </div>
-              <div className="submit-finish">
-              <button onClick={handleSubmitClick} style={{ fontSize: "20px", padding: "10px 20px" }}>Submit</button>
-
-              </div>
-            </div>
-
-          </div>
-
+      <div className="act-container">
+        <div className="response-counter">
+          {num_submission < 4 ? (
+            <h3>Please submit at least 4 responses </h3>
+          ) : (
+            <h3>
+              Thank you for your participation, Now you can continue or click
+              the "Finish" button to leave
+            </h3>
+          )}
         </div>
+
+        {num_submission >= 4 ? (
+          <button
+            onClick={handleFinishClick}
+            style={{ fontSize: "20px", padding: "10px 20px" }}
+          >
+            Finish
+          </button>
+        ) : null}
+
+        <div className="image-preview">
+          {measure.image !== "" ? (
+            <img src={measure.image} alt="Measure Image" />
+          ) : null}
+        </div>
+
+        <div className="music-staff">
+          {/* Render staff lines */}
+          <div className="staff">
+            {[...Array(5)].map((_, idx) => (
+              <div key={idx} className="staff-line" />
+            ))}
+          </div>
+          {/* <div className="note">{getNoteSymbol(6)}</div> */}
+          {/* Render draggable note */}
+          {notes.map(({ x, y, type }, index) =>
+            type < 3 || type > 5 ? (
+              <Draggable
+                key={index}
+                axis="y"
+                bounds="parent"
+                position={{ x, y }}
+                onDrag={(e, position) => handleNoteDrag(index, position)}
+              >
+                <div className="note">{getNoteSymbol(type)}</div>
+              </Draggable>
+            ) : (
+              <Draggable
+                key={index}
+                axis="y"
+                bounds="parent"
+                position={{ x, y }}
+                onDrag={(e, position) => handleNoteDrag(index, position)}
+                disabled={true}
+              >
+                <div className="note">{getNoteSymbol(type)}</div>
+              </Draggable>
+            )
+          )}
+
+          {/* Render buttons */}
+          <div className="note-buttons">
+            {types.map((note, index) => (
+              <button
+                key={index}
+                onClick={() => addNote(note)}
+                style={{ marginRight: "10px" }}
+              >
+                {/* <img src={`img${note+1}.png`} alt="Note icon" style={{ width: '50px', height: '50px' }}/> */}
+                <img
+                  src={process.env.PUBLIC_URL + `/notes/img${note + 1}.png`}
+                  alt="Note icon"
+                  style={{ width: "50px", height: "50px" }}
+                />
+
+                {note + 1}
+              </button>
+            ))}
+          </div>
+          <div className="button-container" style={{ marginTop: "20px" }}>
+            <div className="reset-button">
+              <button
+                onClick={() => deleteLastNote()}
+                style={{ fontSize: "20px", padding: "10px 20px" }}
+              >
+                Delete
+              </button>
+            </div>
+
+            <div className="reset-button">
+              <button
+                onClick={() => resetMeasure()}
+                style={{ fontSize: "20px", padding: "10px 20px" }}
+              >
+                Reset
+              </button>
+            </div>
+            <div className="submit-finish">
+              <button
+                onClick={handleSubmitClick}
+                style={{ fontSize: "20px", padding: "10px 20px" }}
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
       {/* </section> */}
     </React.Fragment>
   );
