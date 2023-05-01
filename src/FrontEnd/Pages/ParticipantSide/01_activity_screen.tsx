@@ -228,6 +228,10 @@ const ParticipantActivityScreen = () => {
             )}
           </div>
 
+          {num_submission >= 4 ? (
+                <button onClick={handleFinishClick} style={{ fontSize: "20px", padding: "10px 20px" }}>Finish</button>
+              ) : null}
+
           <div className="image-preview">
             {measure.image !== "" ? (
               <img src={measure.image} alt="Measure Image" />
@@ -307,9 +311,7 @@ const ParticipantActivityScreen = () => {
               </div>
               <div className="submit-finish">
               <button onClick={handleSubmitClick} style={{ fontSize: "20px", padding: "10px 20px" }}>Submit</button>
-              {num_submission >= 4 ? (
-                <button onClick={handleFinishClick}>Finish</button>
-              ) : null}
+
               </div>
             </div>
 
