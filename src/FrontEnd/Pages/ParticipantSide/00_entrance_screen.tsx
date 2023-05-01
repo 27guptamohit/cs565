@@ -9,13 +9,15 @@ const ParticipantEntraceScreen = () => {
   const [experience, setExperience] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
+  const ENDPOINT = "https://cs565-backend-2023.herokuapp.com";
+
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.target as HTMLFormElement;
     const email = form.email.value;
     const experience = form.experience.value;
   
-    axios.post("https://cs565-backend-2023.herokuapp.com/api/users", {
+    axios.post(`${ENDPOINT}/api/users`, {
       email: email,
       experience: experience
     })
