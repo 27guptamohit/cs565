@@ -32,7 +32,7 @@ const ParticipantEntraceScreen = () => {
 
   return (
     <div className="container d-flex flex-column justify-content-center align-items-center">
-        <div className="welcome-message">Welcome to the Music Identification activity!</div>
+        <div className="welcome-message">Welcome to the Music Sheet Identification activity!</div>
         <img src = "/notes/img7.png" alt = "music"></img>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
