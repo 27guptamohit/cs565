@@ -7,8 +7,8 @@ import {
     Routes
 } from "react-router-dom";
 
-import NavBar from "./FrontEnd/Pages/00_nav_bar";
-import HomeScreen from "./FrontEnd/Pages/01_home_screen";
+// import NavBar from "./FrontEnd/Pages/00_nav_bar";
+// import HomeScreen from "./FrontEnd/Pages/01_home_screen";
 
 import ResearcherUploadImage from "./FrontEnd/Pages/ResearcherSide/01_upload_image_options";
 import ResearcherAnalytics from "./FrontEnd/Pages/ResearcherSide/02_analytics";
@@ -26,7 +26,7 @@ function App() {
 
       <React.Fragment>
           <Router>
-              <NavBar />
+              {/* <NavBar /> */}
 
               <Routes>
                   {/* <Route path={"/"} element={<HomeScreen></HomeScreen>}></Route> */}
