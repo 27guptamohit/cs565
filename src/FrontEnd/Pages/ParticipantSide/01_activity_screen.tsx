@@ -205,6 +205,19 @@ const ParticipantActivityScreen = () => {
     <React.Fragment>
       {/* <section className="section-02-participant-activity-screen"> */}
       <div className="act-container">
+        
+        <div className="instruction">
+          <h1>Instructions</h1>
+          <p>1. Click on the symbols in sequential order that match the picture on the left.</p>
+          <p>2. Match the picture on the left by dragging the symbols up or down on the staff.</p>
+          <p>3. When you believe that the left and right sides are correctly aligned,click on the 'submit' button. </p>
+        </div>
+        <div className="image-preview">
+          {measure.image !== "" ? (
+            <img src={measure.image} alt="Measure Image" />
+          ) : null}
+        </div>
+        
         <div className="response-counter">
           {num_submission < 4 ? (
             <h3>Please submit at least 4 responses </h3>
@@ -224,12 +237,6 @@ const ParticipantActivityScreen = () => {
             Finish
           </button>
         ) : null}
-
-        <div className="image-preview">
-          {measure.image !== "" ? (
-            <img src={measure.image} alt="Measure Image" />
-          ) : null}
-        </div>
 
         <div className="music-staff">
           {/* Render staff lines */}

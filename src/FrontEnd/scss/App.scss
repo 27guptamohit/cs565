@@ -301,7 +301,21 @@ body {
     justify-content: center;
     height: 100vh;
   }
-
+  .response-counter {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
+  
+  .response-counter h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    word-wrap: break-word;
+  }
   .button-container {
     display: flex;
     flex-direction: row;
