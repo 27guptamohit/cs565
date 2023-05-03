@@ -209,7 +209,7 @@ const ParticipantActivityScreen = () => {
         <div className="instruction">
           <h1>Instructions</h1>
           <p>1. Click on the symbols in sequential order that match the picture on the left.</p>
-          <p>2. Match the picture on the left by dragging the symbols up or down on the staff.</p>
+          <p>2. Match the picture on the left by dragging the symbols up or down on the staff. The direction of the symbol's tail does not matter.</p>
           <p>3. When you believe that the left and right sides are correctly aligned,click on the 'submit' button. </p>
         </div>
         <div className="image-preview">
