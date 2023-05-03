@@ -1,12 +1,11 @@
 import { useState } from 'react';
 import axios from 'axios';
-import { BrowserRouter, Route, useNavigate} from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 
 
 const ParticipantEntraceScreen = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
-  const [experience, setExperience] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
   const ENDPOINT = "https://cs565-backend-2023.herokuapp.com";
@@ -48,7 +47,7 @@ const ParticipantEntraceScreen = () => {
   return (
     <div className="container d-flex flex-column justify-content-center align-items-center">
         <div className="welcome-message">Welcome to the Music Sheet Identification activity!</div>
-        <img src = "/notes/img7.png" alt = "music" style={{ width: '50%', height: 'auto' }}></img>
+        <img src = "/notes/img7.png" alt = "music" style={{ width: '30%', height: 'auto' }}></img>
         <div>About the study:</div>
         <div>xxxx</div>
 
@@ -66,18 +65,6 @@ const ParticipantEntraceScreen = () => {
             style={{ width: '300px' }}
           />
         </div>
-        {/* <div className="form-group">
-          <label htmlFor="experience">Your Music Experience</label>
-          <input
-            type="text"
-            className="form-control"
-            id="experience"
-            placeholder="e.g. None, some, a lot, etc."
-            value={experience}
-            onChange={(event) => setExperience(event.target.value)}
-            style={{ width: '300px' }}
-          />
-        </div> */}
 
         <div style={{ textAlign: 'center' }}>
         <h4>Your Experience of Writing/Reading Music</h4>
