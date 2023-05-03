@@ -72,9 +72,13 @@ const ParticipantActivityScreen = () => {
     setNum_submission((prevState) => prevState + 1);
     const symbols: Symbol[] = notes.map((note: Note) => {
       if (note.type === 0 || note.type === 1 || note.type === 2) {
+        let pitch: number | undefined = pitchIdx.get(note.y);
+        if (pitch !== undefined) {
+          pitch += 1;
+        }
         return {
           name: String(typesName[note.type]),
-          pitch: pitchIdx.get(note.y),
+          pitch: pitch,
         };
       } else {
         return {
