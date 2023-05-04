@@ -162,7 +162,7 @@ const ParticipantActivityScreen = () => {
       } else {
         setNotes([{ x: 20, y: 175, type: noteType }]);
       }
-    } else if (currNoteCnt < minResponse) {
+    } else if (currNoteCnt < 4) {
       const newNotes = [...notes];
       if (noteType === 3) {
         setNotes([
@@ -302,7 +302,7 @@ const ParticipantActivityScreen = () => {
                 <img
                   src={process.env.PUBLIC_URL + `/notes/img${note + 1}.png`}
                   alt="Note icon"
-                  style={{ width: "50px", height: "50px", padding: "10px" }}
+                  style={{ width: "50px", height: "50px", maxWidth: "10vw", maxHeight: "10vw", padding: "10px" }}
                 />
 
                 {note + 1}

@@ -51,9 +51,9 @@ const ParticipantEntraceScreen = () => {
         <p>
           Hello! This is an early version of Obbligato, a platform that seeks to digitize handwritten sheet music one measure at a time.
           The idea behind Obbligato is that we can leverage the power of a crowd to efficiently and accurately perform the task of <a href="https://en.wikipedia.org/wiki/Optical_music_recognition">optical music recognition</a>.
-          We are researching the feasibility of such a system, and would be highly grateful for your participation. All that we would ask of you is five minutes of your time to digitize four straightforward measures of music via our interface.
+          We are researching the feasibility of such a system, and would be highly grateful for your participation. All that we would ask of you is five minutes of your time to digitize eight straightforward measures of music via our interface.
           Do not worry about your experience level with sheet music or how accurately you complete the task, the most important part is that you make an honest effort.
-          Obbligato was designed to be used on a computer, so we ask that you do this on a computer if possible, otherwise the site may break.
+          Obbligato was designed to be used on a computer, so if using a mobile phone the site may not work 100% correctly.
         </p>
 
         <p>
