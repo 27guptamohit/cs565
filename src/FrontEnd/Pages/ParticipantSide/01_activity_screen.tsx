@@ -39,7 +39,7 @@ const typesName = [
   "quarter_rest",
 ];
 
-const notePos = [375, 350, 325, 300, 275, 250, 225, 200, 175];
+const notePos = [275, 250, 225, 200, 175, 150, 125, 100, 75];
 const pitchIdx = new Map(notePos.map((val, idx) => [val, idx]));
 
 const ParticipantActivityScreen = () => {
@@ -125,11 +125,11 @@ const ParticipantActivityScreen = () => {
     const { x, y } = position;
     let snappedY = Math.round(y / 25) * 25; // Snap to 25-pixel increments
     // set boundary for the note
-    if (snappedY < 175) {
-      snappedY = 175;
+    if (snappedY < 75) {
+      snappedY = 75;
     }
-    if (snappedY > 375) {
-      snappedY = 375;
+    if (snappedY > 275) {
+      snappedY = 275;
     }
     const newNotes = [...notes];
     newNotes[index].y = snappedY;
@@ -140,35 +140,35 @@ const ParticipantActivityScreen = () => {
     let currNoteCnt = notes.length;
     if (currNoteCnt === 0) {
       if (noteType === 3) {
-        setNotes([{ x: 70, y: 225, type: noteType }]);
+        setNotes([{ x: 100, y: 125, type: noteType }]);
       } else if (noteType === 4) {
-        setNotes([{ x: 70, y: 250, type: noteType }]);
+        setNotes([{ x: 100, y: 150, type: noteType }]);
       } else if (noteType === 5) {
-        setNotes([{ x: 70, y: 275, type: noteType }]);
+        setNotes([{ x: 100, y: 175, type: noteType }]);
       } else {
-        setNotes([{ x: 70, y: 350, type: noteType }]);
+        setNotes([{ x: 100, y: 175, type: noteType }]);
       }
     } else if (currNoteCnt < 4) {
       const newNotes = [...notes];
       if (noteType === 3) {
         setNotes([
           ...newNotes,
-          { x: newNotes[newNotes.length - 1].x + 180, y: 225, type: noteType },
+          { x: newNotes[newNotes.length - 1].x + 180, y: 125, type: noteType },
         ]);
       } else if (noteType === 4) {
         setNotes([
           ...newNotes,
-          { x: newNotes[newNotes.length - 1].x + 180, y: 250, type: noteType },
+          { x: newNotes[newNotes.length - 1].x + 180, y: 150, type: noteType },
         ]);
       } else if (noteType === 5) {
         setNotes([
           ...newNotes,
-          { x: newNotes[newNotes.length - 1].x + 180, y: 275, type: noteType },
+          { x: newNotes[newNotes.length - 1].x + 180, y: 175, type: noteType },
         ]);
       } else {
         setNotes([
           ...newNotes,
-          { x: newNotes[newNotes.length - 1].x + 180, y: 350, type: noteType },
+          { x: newNotes[newNotes.length - 1].x + 180, y: 175, type: noteType },
         ]);
       }
     }
@@ -251,7 +251,7 @@ const ParticipantActivityScreen = () => {
               <Draggable
                 key={index}
                 axis="y"
-                bounds="parent"
+                bounds={{top: 75, bottom: 275}}
                 position={{ x, y }}
                 onDrag={(e, position) => handleNoteDrag(index, position)}
               >
@@ -270,6 +270,9 @@ const ParticipantActivityScreen = () => {
               </Draggable>
             )
           )}
+          
+          {/* <div style={{marginBottom: "200px"}}>
+          </div> */}
 
           {/* Render buttons */}
           <div className="note-buttons">
