@@ -39,6 +39,8 @@ const typesName = [
   "quarter_rest",
 ];
 
+const minResponse = 8;
+
 const notePos = [275, 250, 225, 200, 175, 150, 125, 100, 75];
 const pitchIdx = new Map(notePos.map((val, idx) => [val, idx]));
 
@@ -160,7 +162,7 @@ const ParticipantActivityScreen = () => {
       } else {
         setNotes([{ x: 20, y: 175, type: noteType }]);
       }
-    } else if (currNoteCnt < 4) {
+    } else if (currNoteCnt < minResponse) {
       const newNotes = [...notes];
       if (noteType === 3) {
         setNotes([
@@ -233,8 +235,8 @@ const ParticipantActivityScreen = () => {
         </div>
         
         <div className="response-counter">
-          {num_submission < 4 ? (
-            <h3>Please submit {4 - num_submission} more responses. </h3>
+          {num_submission < minResponse ? (
+            <h3>Please submit {minResponse - num_submission} more responses. </h3>
           ) : (
             <h3>
               Feel free to continue to digitize measures (we would appreciate it!), or click "Finish" to leave the study.
@@ -242,7 +244,7 @@ const ParticipantActivityScreen = () => {
           )}
         </div>
 
-        {num_submission >= 4 ? (
+        {num_submission >= minResponse ? (
           <button
             onClick={handleFinishClick}
             style={{ fontSize: "20px", padding: "10px 20px" }}
