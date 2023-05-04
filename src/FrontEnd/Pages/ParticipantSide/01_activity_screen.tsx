@@ -208,9 +208,9 @@ const ParticipantActivityScreen = () => {
         
         <div className="instruction">
           <h1>Instructions</h1>
-          <p>1. Click on the symbols in sequential order that match the picture on the left.</p>
-          <p>2. Match the picture on the left by dragging the symbols up or down on the staff. The direction of the symbol's tail does not matter.</p>
-          <p>3. When you believe that the left and right sides are correctly aligned,click on the 'submit' button. </p>
+          <p>1. Click on the symbols in sequential order that match the picture of the handwritten measure.</p>
+          <p>2. Once satisfied with the symbols you selected, drag them up or down on the staff to put them in the same position as in the picture. Ignore the direction of the symbol's tail.</p>
+          <p>3. When you believe that your recreation matches the image, click the 'submit' button. </p>
         </div>
         <div className="image-preview">
           {measure.image !== "" ? (
@@ -220,11 +220,10 @@ const ParticipantActivityScreen = () => {
         
         <div className="response-counter">
           {num_submission < 4 ? (
-            <h3>Please submit at least 4 responses </h3>
+            <h3>Please submit {4 - num_submission} more responses. </h3>
           ) : (
             <h3>
-              Thank you for your participation, Now you can continue or click
-              the "Finish" button to leave
+              Feel free to continue to digitize measures (we would appreciate it!), or click "Finish" to leave the study.
             </h3>
           )}
         </div>
@@ -278,13 +277,13 @@ const ParticipantActivityScreen = () => {
               <button
                 key={index}
                 onClick={() => addNote(note)}
-                style={{ marginRight: "10px" }}
+                style={{ paddingRight: "10px" }}
               >
                 {/* <img src={`img${note+1}.png`} alt="Note icon" style={{ width: '50px', height: '50px' }}/> */}
                 <img
                   src={process.env.PUBLIC_URL + `/notes/img${note + 1}.png`}
                   alt="Note icon"
-                  style={{ width: "50px", height: "50px" }}
+                  style={{ width: "50px", height: "50px", padding: "10px" }}
                 />
 
                 {note + 1}
