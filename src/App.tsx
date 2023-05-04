@@ -2,7 +2,7 @@ import React from 'react';
 import './FrontEnd/scss/App.scss';
 
 import {
-    HashRouter as Router,
+    HashRouter,
     Route,
     Routes
 } from "react-router-dom";
@@ -25,7 +25,7 @@ function App() {
   return (
 
       <React.Fragment>
-          <Router>
+          <HashRouter>
               {/* <NavBar /> */}
 
               <Routes>
@@ -42,7 +42,7 @@ function App() {
 
 
               </Routes>
-          </Router>
+          </HashRouter>
       </React.Fragment>
 
   );

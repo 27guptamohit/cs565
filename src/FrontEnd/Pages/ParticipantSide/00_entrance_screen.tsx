@@ -47,7 +47,7 @@ const ParticipantEntraceScreen = () => {
   return (
     <div className="container d-flex flex-column justify-content-center align-items-center">
         <div className="welcome-message">Welcome to the Sheet Music Digitization Study!</div>
-        <img src = "/notes/img7.png" alt = "music" style={{ width: '40%', height: 'auto' }}></img>
+        <img src ={process.env.PUBLIC_URL + "/notes/img7.png"} alt = "music" style={{ width: '40%', height: 'auto' }}></img>
         <p>
           Hello! This is an early version of Obbligato, a platform that seeks to digitize handwritten sheet music one measure at a time.
           The idea behind Obbligato is that we can leverage the power of a crowd to efficiently and accurately perform the task of <a href="https://en.wikipedia.org/wiki/Optical_music_recognition">optical music recognition</a>.
