@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Draggable from "react-draggable";
@@ -46,17 +46,28 @@ const ParticipantActivityScreen = () => {
   const [measure, setMeasure] = useState({ _id: "", image: "" });
   const [num_submission, setNum_submission] = useState(0);
   const navigate = useNavigate();
+  const [noteSpace, setNoteSpace] = useState(0);
+  const staffDiv = useRef<HTMLDivElement>(null);
 
+  
+  useEffect(() => {
+    if (staffDiv !== null && staffDiv.current !== null) {
+      let spacing = (staffDiv.current.getBoundingClientRect().width - 360) / 5;
+      setNoteSpace(spacing);
+    }
+  }, []);
+
+  
   useEffect(() => {
     fetchMeasure();
   }, [num_submission]);
-
+  
   const fetchMeasure = () => {
     API.get("api/measuretask")
-      .then((response) => {
-        const data = response.data;
-        let u8 = new Uint8Array(data.data.image.data);
-        let decoder = new TextDecoder("utf8");
+    .then((response) => {
+      const data = response.data;
+      let u8 = new Uint8Array(data.data.image.data);
+      let decoder = new TextDecoder("utf8");
         let b64 = decoder.decode(u8);
         setMeasure({
           _id: data.data._id,
@@ -66,14 +77,14 @@ const ParticipantActivityScreen = () => {
       .catch((error) => {
         console.error("There was a problem with the fetch operation:", error);
       });
-  };
-
-  const handleSubmitClick = () => {
-    setNum_submission((prevState) => prevState + 1);
-    const symbols: Symbol[] = notes.map((note: Note) => {
-      if (note.type === 0 || note.type === 1 || note.type === 2) {
-        let pitch: number | undefined = pitchIdx.get(note.y);
-        if (pitch !== undefined) {
+    };
+    
+    const handleSubmitClick = () => {
+      setNum_submission((prevState) => prevState + 1);
+      const symbols: Symbol[] = notes.map((note: Note) => {
+        if (note.type === 0 || note.type === 1 || note.type === 2) {
+          let pitch: number | undefined = pitchIdx.get(note.y);
+          if (pitch !== undefined) {
           pitch += 1;
         }
         return {
@@ -102,28 +113,29 @@ const ParticipantActivityScreen = () => {
       .catch((error) => {
         console.error("There was a problem with the fetch operation:", error);
       });
-  };
+    };
+    
+    const handleFinishClick = () => {
+      navigate("/thankyou");
+    };
 
-  const handleFinishClick = () => {
-    navigate("/thankyou");
-  };
-
-  const location = useLocation();
+    const location = useLocation();
   const userId = location.state?.userId;
   //   console.log("userId: " + userId);
 
   const measureId = measure._id;
   //   console.log("measureId: " + measureId);
-
+  
   //   const [notes, setNotes] = useState([]);
   const [notes, setNotes] = useState<Note[]>([]);
-
+  
+  
   const handleNoteDrag = (
     index: number,
     position: { x: number; y: number }
-  ) => {
-    const { x, y } = position;
-    let snappedY = Math.round(y / 25) * 25; // Snap to 25-pixel increments
+    ) => {
+      const { x, y } = position;
+      let snappedY = Math.round(y / 25) * 25; // Snap to 25-pixel increments
     // set boundary for the note
     if (snappedY < 75) {
       snappedY = 75;
@@ -140,35 +152,35 @@ const ParticipantActivityScreen = () => {
     let currNoteCnt = notes.length;
     if (currNoteCnt === 0) {
       if (noteType === 3) {
-        setNotes([{ x: 100, y: 125, type: noteType }]);
+        setNotes([{ x: noteSpace, y: 125, type: noteType }]);
       } else if (noteType === 4) {
-        setNotes([{ x: 100, y: 150, type: noteType }]);
+        setNotes([{ x: noteSpace, y: 150, type: noteType }]);
       } else if (noteType === 5) {
-        setNotes([{ x: 100, y: 175, type: noteType }]);
+        setNotes([{ x: noteSpace, y: 175, type: noteType }]);
       } else {
-        setNotes([{ x: 100, y: 175, type: noteType }]);
+        setNotes([{ x: noteSpace, y: 175, type: noteType }]);
       }
     } else if (currNoteCnt < 4) {
       const newNotes = [...notes];
       if (noteType === 3) {
         setNotes([
           ...newNotes,
-          { x: newNotes[newNotes.length - 1].x + 180, y: 125, type: noteType },
+          { x: newNotes[newNotes.length - 1].x + 90 + noteSpace, y: 125, type: noteType },
         ]);
       } else if (noteType === 4) {
         setNotes([
           ...newNotes,
-          { x: newNotes[newNotes.length - 1].x + 180, y: 150, type: noteType },
+          { x: newNotes[newNotes.length - 1].x + 90 + noteSpace, y: 150, type: noteType },
         ]);
       } else if (noteType === 5) {
         setNotes([
           ...newNotes,
-          { x: newNotes[newNotes.length - 1].x + 180, y: 175, type: noteType },
+          { x: newNotes[newNotes.length - 1].x + 90 + noteSpace, y: 175, type: noteType },
         ]);
       } else {
         setNotes([
           ...newNotes,
-          { x: newNotes[newNotes.length - 1].x + 180, y: 175, type: noteType },
+          { x: newNotes[newNotes.length - 1].x + 90 + noteSpace, y: 175, type: noteType },
         ]);
       }
     }
@@ -237,7 +249,7 @@ const ParticipantActivityScreen = () => {
           </button>
         ) : null}
 
-        <div className="music-staff">
+        <div className="music-staff" ref={staffDiv}>
           {/* Render staff lines */}
           <div className="staff">
             {[...Array(5)].map((_, idx) => (
