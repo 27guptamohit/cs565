@@ -275,7 +275,7 @@ const ParticipantActivityScreen = () => {
           </div> */}
 
           {/* Render buttons */}
-          <div className="note-buttons">
+          <div className="note-buttons" style={{ position: 'relative', zIndex: 1 }}>
             {types.map((note, index) => (
               <button
                 key={index}
