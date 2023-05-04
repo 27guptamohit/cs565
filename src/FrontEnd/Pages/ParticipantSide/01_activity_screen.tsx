@@ -52,7 +52,7 @@ const ParticipantActivityScreen = () => {
   
   useEffect(() => {
     if (staffDiv !== null && staffDiv.current !== null) {
-      let spacing = (staffDiv.current.getBoundingClientRect().width - 360) / 5;
+      let spacing = (staffDiv.current.getBoundingClientRect().width - 400) / 3;
       setNoteSpace(spacing);
     }
   }, []);
@@ -152,13 +152,13 @@ const ParticipantActivityScreen = () => {
     let currNoteCnt = notes.length;
     if (currNoteCnt === 0) {
       if (noteType === 3) {
-        setNotes([{ x: noteSpace, y: 125, type: noteType }]);
+        setNotes([{ x: 20, y: 125, type: noteType }]);
       } else if (noteType === 4) {
-        setNotes([{ x: noteSpace, y: 150, type: noteType }]);
+        setNotes([{ x: 20, y: 150, type: noteType }]);
       } else if (noteType === 5) {
-        setNotes([{ x: noteSpace, y: 175, type: noteType }]);
+        setNotes([{ x: 20, y: 175, type: noteType }]);
       } else {
-        setNotes([{ x: noteSpace, y: 175, type: noteType }]);
+        setNotes([{ x: 20, y: 175, type: noteType }]);
       }
     } else if (currNoteCnt < 4) {
       const newNotes = [...notes];
@@ -219,10 +219,12 @@ const ParticipantActivityScreen = () => {
       <div className="act-container">
         
         <div className="instruction">
-          <h1>Instructions</h1>
-          <p>1. Click on the symbols in sequential order that match the picture of the handwritten measure.</p>
-          <p>2. Once satisfied with the symbols you selected, drag them up or down on the staff to put them in the same position as in the picture. Ignore the direction of the symbol's tail.</p>
-          <p>3. When you believe that your recreation matches the image, click the 'submit' button. </p>
+          <h3>Instructions</h3>
+          <p>
+            Click on the symbols in sequential order that match the picture of the handwritten measure.
+            Once satisfied with the symbols you selected, drag them up or down on the staff to put them in the same position as in the picture. Ignore the direction of the symbol's tail.
+            When you believe that your recreation matches the image, click the 'Submit' button.
+          </p>
         </div>
         <div className="image-preview">
           {measure.image !== "" ? (
@@ -305,7 +307,7 @@ const ParticipantActivityScreen = () => {
               </button>
             ))}
           </div>
-          <div className="button-container" style={{ marginTop: "20px" }}>
+          <div className="button-container" style={{ marginTop: "20px", position: 'relative', zIndex: 1 }}>
             <div className="reset-button">
               <button
                 onClick={() => deleteLastNote()}
@@ -315,7 +317,7 @@ const ParticipantActivityScreen = () => {
               </button>
             </div>
 
-            <div className="reset-button">
+            <div className="reset-button" style={{ position: 'relative', zIndex: 1 }}>
               <button
                 onClick={() => resetMeasure()}
                 style={{ fontSize: "20px", padding: "10px 20px" }}
@@ -323,7 +325,7 @@ const ParticipantActivityScreen = () => {
                 Reset
               </button>
             </div>
-            <div className="submit-finish">
+            <div className="submit-finish" style={{ position: 'relative', zIndex: 1 }}>
               <button
                 onClick={handleSubmitClick}
                 style={{ fontSize: "20px", padding: "10px 20px" }}

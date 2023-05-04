@@ -293,6 +293,13 @@ body {
 
 }
 
+div.image-preview {
+  img {
+    max-height: 17vh;
+    object-fit: contain;
+  }
+}
+
 .act-container {
     display: flex;
     // flex-wrap: wrap;
@@ -300,6 +307,7 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    margin: 20px;
   }
   .response-counter {
     text-align: center;
