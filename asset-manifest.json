@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/cs565/static/css/main.325a7c6e.css",
-    "main.js": "/cs565/static/js/main.265984b7.js",
-    "static/js/787.b8b319ae.chunk.js": "/cs565/static/js/787.b8b319ae.chunk.js",
-    "static/media/Bravura.otf": "/cs565/static/media/Bravura.631ae8df294dadc3598d.otf",
-    "index.html": "/cs565/index.html",
-    "main.325a7c6e.css.map": "/cs565/static/css/main.325a7c6e.css.map",
-    "main.265984b7.js.map": "/cs565/static/js/main.265984b7.js.map",
-    "787.b8b319ae.chunk.js.map": "/cs565/static/js/787.b8b319ae.chunk.js.map"
+    "main.css": "/Obbligato/static/css/main.5db0fb3e.css",
+    "main.js": "/Obbligato/static/js/main.548f08d4.js",
+    "static/js/787.57b10785.chunk.js": "/Obbligato/static/js/787.57b10785.chunk.js",
+    "static/media/Bravura.otf": "/Obbligato/static/media/Bravura.631ae8df294dadc3598d.otf",
+    "index.html": "/Obbligato/index.html",
+    "main.5db0fb3e.css.map": "/Obbligato/static/css/main.5db0fb3e.css.map",
+    "main.548f08d4.js.map": "/Obbligato/static/js/main.548f08d4.js.map",
+    "787.57b10785.chunk.js.map": "/Obbligato/static/js/787.57b10785.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.325a7c6e.css",
-    "static/js/main.265984b7.js"
+    "static/css/main.5db0fb3e.css",
+    "static/js/main.548f08d4.js"
   ]
 }
