@@ -1,46 +1,51 @@
-# Getting Started with Create React App
+# Obbligato
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Obbligato is a web application that tackles the task of [optical music recongition (OMR)](https://en.wikipedia.org/wiki/Optical_music_recognition) through the power of crowdsourcing. Automated OMR systems still tend to struggle with handwritten sheet music, so the question we set out to answer was if we could employ people (including those without prior music experience) to digitally transcribe sheet music instead. This website hosts a simple study that we ran to test the crowd's capabilities on some test sheet music. We found that, despite most participants having little musical experience, the crowd was able to correctly digitize measures with 95% accuracy. There is still much work to be done given that Obbligato was launched with a very limited musical vocabulary (three types of notes and three types of rests), but it is a promising example of the crowd's capabilities with respect to digitizing sheet music.
 
-## Available Scripts
+Created by Runyao Fan, Mohit Gupta, Naman Jain, Chris Kull, Weili Li and Yutao Zhou from the University of Illinois Urbana-Champaign. 
 
-In the project directory, you can run:
+## Contents
 
-### `npm start`
+- [Implementation Details](#implementation-details)
+- [Development Environment Setup](#development-environment-setup)
+- [Running the Server](#running-the-server)
+- [Deployment](#deployment)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Implementation Details
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+This repository contains the frontend code for the website, written using Typescript and React. [The sister backend repository can be found here.](https://github.com/CS-565-SP-2023/Obbligato-backend)
 
-### `npm test`
+## Development Environment Setup
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Install nvm, node.js, npm (MacOS/Linux, [original reference](https://learn.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-wsl)):
+```bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
 
-### `npm run build`
+# The below command may be needed so that nvm can be found by your shell
+export NVM_DIR="$HOME/.nvm"
+\. "$NVM_DIR/nvm.sh"
+\. "$NVM_DIR/bash_completion"
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+nvm install --lts
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Note that Windows will have to install a different way, [see here](https://github.com/coreybutler/nvm-windows).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Install all node packages:
+```bash
+npm install
+```
 
-### `npm run eject`
+## Running the Server
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+To run the server for development:
+```bash
+npm start
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Deployment
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Deployment is done via GitHub pages. In order to deploy:
+```bash
+npm run deploy
+```
