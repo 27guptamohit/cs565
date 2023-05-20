@@ -2,6 +2,8 @@
 
 Obbligato is a web application that tackles the task of [optical music recongition (OMR)](https://en.wikipedia.org/wiki/Optical_music_recognition) through the power of crowdsourcing. Automated OMR systems still tend to struggle with handwritten sheet music, so the question we set out to answer was if we could employ people (including those without prior music experience) to digitally transcribe sheet music instead. This website hosts a simple study that we ran to test the crowd's capabilities on some test sheet music. We found that, despite most participants having little musical experience, the crowd was able to correctly digitize measures with 95% accuracy. There is still much work to be done given that Obbligato was launched with a very limited musical vocabulary (three types of notes and three types of rests), but it is a promising example of the crowd's capabilities with respect to digitizing sheet music.
 
+[The website can be found here.](https://cs-565-sp-2023.github.io/Obbligato/)
+
 Created by Runyao Fan, Mohit Gupta, Naman Jain, Chris Kull, Weili Li and Yutao Zhou from the University of Illinois Urbana-Champaign. 
 
 ## Contents

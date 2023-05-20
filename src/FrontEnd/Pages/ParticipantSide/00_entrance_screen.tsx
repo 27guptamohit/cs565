@@ -51,20 +51,18 @@ const ParticipantEntraceScreen = () => {
         <p>
           Hello! This is an early version of Obbligato, a platform that seeks to digitize handwritten sheet music one measure at a time.
           The idea behind Obbligato is that we can leverage the power of a crowd to efficiently and accurately perform the task of <a href="https://en.wikipedia.org/wiki/Optical_music_recognition">optical music recognition</a>.
-          We are researching the feasibility of such a system, and would be highly grateful for your participation. All that we would ask of you is five minutes of your time to digitize eight straightforward measures of music via our interface.
+          The study we were running has since closed, thank you to everyone that participated! If you want to see example tasks in the system, feel free to continue onwards!
           Do not worry about your experience level with sheet music or how accurately you complete the task, the most important part is that you make an honest effort.
           Obbligato was designed to be used on a computer, so if using a mobile phone the site may not work 100% correctly.
         </p>
 
         <p>
-          If you consent to participate in the study, feel free to proceed. As an additional incentive, we will be giving away a few $10 Amazon gift cards to a few lucky participants! If you are interested in entering, feel free to provide your email below.
-          We will not be using your email for any part of the study other than contacting you in the near future should you win a gift card.
-          Other than that, select the option that best describes your experience working with sheet music, and once ready, hit the submit button to begin the task!
+          The email field was previously used for a giveaway, but it is not needed for entry.
+          Simply select the option that best describes your experience working with sheet music, and once ready, hit the submit button to begin the task!
         </p>
 
       <form onSubmit={handleSubmit} style={{ textAlign: 'center' }}>
         <div className="form-group" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        {/* <h4 style={{ textAlign: 'center' }}>Your Email - Optional, for Gift Card Raffle only</h4> */}
           <label htmlFor="email">Email (optional, for gift card raffle):</label>
           <input
             type="email"
@@ -78,33 +76,8 @@ const ParticipantEntraceScreen = () => {
         </div>
         <br></br>
         <div style={{ textAlign: 'center' }}>
-          {/* <h4>Your Experience of Writing/Reading Music</h4> */}
           <label htmlFor="musicExperience">Experience reading or writing sheet music:</label>
           <form id="musicExperience">
-            {/* <div>
-                <label>
-                <input type="radio" name="musicExperience" value="Zero experience" defaultChecked />
-                Zero experience
-                </label>
-            </div>
-            <div>
-                <label>
-                <input type="radio" name="musicExperience" value="Some experience" />
-                Some experience
-                </label>
-            </div>
-            <div>
-                <label>
-                <input type="radio" name="musicExperience" value="Actively working with music" />
-                Actively working with music
-                </label>
-            </div>
-            <div>
-                <label>
-                <input type="radio" name="musicExperience" value="Prefer not to answer" />
-                Prefer not to answer
-                </label>
-            </div> */}
             <div>
               <input id="musicExperienceZero" type="radio" name="musicExperience" value="Zero experience" defaultChecked />
               <label style={{ paddingLeft: "20px"}} htmlFor="musicExperienceZero">Zero experience</label>
