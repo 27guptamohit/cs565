@@ -11,7 +11,7 @@ export default class ResearcherUploadImageOptions extends Component
                     <div className="image-upload">
 
                         <div className="image-preview">
-                            <img src="logo512.png" alt="Preview Image" />
+                            <img src="logo512.png" alt="Preview" />
                         </div>
 
                         <div className="image-upload-form">

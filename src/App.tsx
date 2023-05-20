@@ -14,7 +14,6 @@ import ResearcherUploadImage from "./FrontEnd/Pages/ResearcherSide/01_upload_ima
 import ResearcherAnalytics from "./FrontEnd/Pages/ResearcherSide/02_analytics";
 import ResearcherGenerateResults from "./FrontEnd/Pages/ResearcherSide/03_generate_results";
 
-// import ParticipantActivityScreen from "./FrontEnd/Pages/ParticipantSide/01_activity_screen_bak";
 import ParticipantEntraceScreen from "./FrontEnd/Pages/ParticipantSide/00_entrance_screen";
 import ParticipantActivityScreen from "./FrontEnd/Pages/ParticipantSide/01_activity_screen";
 import ThankyouScreen from "./FrontEnd/Pages/ParticipantSide/02_thankyou_screen";

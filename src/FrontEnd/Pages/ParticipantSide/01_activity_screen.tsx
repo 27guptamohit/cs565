@@ -81,61 +81,60 @@ const ParticipantActivityScreen = () => {
       });
     };
     
-    const handleSubmitClick = () => {
-      setNum_submission((prevState) => prevState + 1);
-      const symbols: Symbol[] = notes.map((note: Note) => {
-        if (note.type === 0 || note.type === 1 || note.type === 2) {
-          let pitch: number | undefined = pitchIdx.get(note.y);
-          if (pitch !== undefined) {
-          pitch += 1;
-        }
-        return {
-          name: String(typesName[note.type]),
-          pitch: pitch,
-        };
-      } else {
-        return {
-          name: String(typesName[note.type]),
-        };
+  const handleSubmitClick = () => {
+    setNum_submission((prevState) => prevState + 1);
+    const symbols: Symbol[] = notes.map((note: Note) => {
+      if (note.type === 0 || note.type === 1 || note.type === 2) {
+        let pitch: number | undefined = pitchIdx.get(note.y);
+        if (pitch !== undefined) {
+        pitch += 1;
       }
-    });
-    const requestBody: RequestBody = {
-      measureId: measureId,
-      measureResponse: {
-        userId: userId,
-        symbols: symbols,
-      },
-    };
-    console.log(requestBody);
-    API.post("api/measureresponse", requestBody)
-      .then((response) => {
-        // console.log(response.data); // handle the response data as needed
-        resetMeasure();
-      })
-      .catch((error) => {
-        console.error("There was a problem with the fetch operation:", error);
-      });
-    };
-    
-    const handleFinishClick = () => {
-      navigate("/thankyou");
-    };
+      return {
+        name: String(typesName[note.type]),
+        pitch: pitch,
+      };
+    } else {
+      return {
+        name: String(typesName[note.type]),
+      };
+    }
+  });
 
-    const location = useLocation();
+  const requestBody: RequestBody = {
+    measureId: measureId,
+    measureResponse: {
+      userId: userId,
+      symbols: symbols,
+    },
+  };
+  console.log(requestBody);
+  API.post("api/measureresponse", requestBody)
+    .then((response) => {
+      // console.log(response.data); // handle the response data as needed
+      resetMeasure();
+    })
+    .catch((error) => {
+      console.error("There was a problem with the fetch operation:", error);
+    });
+  };
+  
+  const handleFinishClick = () => {
+    navigate("/thankyou");
+  };
+
+  const location = useLocation();
   const userId = location.state?.userId;
-  //   console.log("userId: " + userId);
 
   const measureId = measure._id;
-  //   console.log("measureId: " + measureId);
-  
-  //   const [notes, setNotes] = useState([]);
+
   const [notes, setNotes] = useState<Note[]>([]);
-  
+
   
   const handleNoteDrag = (
     index: number,
     position: { x: number; y: number }
     ) => {
+      // eslint-disable-next-line
       const { x, y } = position;
       let snappedY = Math.round(y / 25) * 25; // Snap to 25-pixel increments
     // set boundary for the note
@@ -217,7 +216,6 @@ const ParticipantActivityScreen = () => {
 
   return (
     <React.Fragment>
-      {/* <section className="section-02-participant-activity-screen"> */}
       <div className="act-container">
         
         <div className="instruction">
@@ -230,7 +228,7 @@ const ParticipantActivityScreen = () => {
         </div>
         <div className="image-preview">
           {measure.image !== "" ? (
-            <img src={measure.image} alt="Measure Image" />
+            <img src={measure.image} alt="Measure" />
           ) : null}
         </div>
         
@@ -298,7 +296,6 @@ const ParticipantActivityScreen = () => {
                 onClick={() => addNote(note)}
                 style={{ paddingRight: "10px" }}
               >
-                {/* <img src={`img${note+1}.png`} alt="Note icon" style={{ width: '50px', height: '50px' }}/> */}
                 <img
                   src={process.env.PUBLIC_URL + `/notes/img${note + 1}.png`}
                   alt="Note icon"
@@ -338,7 +335,6 @@ const ParticipantActivityScreen = () => {
           </div>
         </div>
       </div>
-      {/* </section> */}
     </React.Fragment>
   );
 };
